@@ -20,12 +20,8 @@ import UIKit
 // - Using NSDateFormatter's dateFromString method 
 //   to convert a date string to an NSDate instance
 //******************************************************************************
-//** PART II : Using NSDateComponents
-// - Create an NSCalendar instance
-// - Convert an NSDate object into an NSComponents object 
-//   using NSCalendar's components method
-// - Convert an NSDateComponents back to an NSDate
-//   using NSCalendar's dateFromComponents method
+// The contents are an implementation of http://appcoda.com 's tutorial
+// - Refer: http://www.appcoda.com/nsdate/
 //******************************************************************************
 
 
@@ -120,47 +116,3 @@ dateAsString = "Thu, 08 Oct 2015 09:22:33 GMT"
 dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
 // Note the 09:22:33 get changed by using the timezone string
 newDate = dateFormatter.dateFromString(dateAsString)
-
-
-/************************************/
-/* PART II : Using NSDateComponents */
-/************************************/
-
-/*********************************/
-/* Create an NSCalendar instance */
-/*********************************/
-let calendar = NSCalendar.currentCalendar()
-
-/********************************************************/
-/* Convert an NSDate object into an NSComponents object */
-/********************************************************/
-let dateComponents = calendar.components(
-                        [NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second],
-                            fromDate: currentDate)
-// To see all the available properties in NSCalendarUnit
-// https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/#//apple_ref/swift/struct/c:@E@NSCalendarUnit
-dateComponents.day
-dateComponents.month
-dateComponents.year
-dateComponents.weekOfYear
-dateComponents.hour
-dateComponents.minute
-dateComponents.second
-dateComponents.nanosecond
-// Because we don't set the NSCalendarUnit.TimeZone, we can't access it
-// unless we create dateComponents again by specify the TimeZone unit
-dateComponents.timeZone
-
-/*************************************************/
-/* Convert an NSDateComponents back to an NSDate */
-/*************************************************/
-let components = NSDateComponents()
-components.day = 5
-components.month = 01
-components.year = 2016
-components.hour = 19
-components.minute = 30
-newDate = calendar.dateFromComponents(components)
-
-
-
