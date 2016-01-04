@@ -10,9 +10,9 @@ import UIKit
 //*********************************************************************
 //** PART III : Comparing Date and Time
 // - Compare two dates by NSDate earlierDate: and laterDate: methods
-// - Compare two dates by compare function and NSComparisonResult enum
+// - Compare two dates by compare: function and NSComparisonResult enum
 // - Compare two dates by using time intervals
-// - Using isEqualToDate:
+// - Use isEqualToDate: to see if two NSDates' objects are equal
 //*********************************************************************
 // The contents are an implementation of http://appcoda.com 's tutorial
 // - Refer: http://www.appcoda.com/nsdate/
@@ -25,7 +25,7 @@ import UIKit
 
 var dateFormatter = NSDateFormatter()
 
-// create two custom date objects
+// Create two custom date objects
 dateFormatter.dateFormat = "MMM dd, yyyy zzz"
 var dateAsString = "Oct 08, 2015 GMT"
 var date1 = dateFormatter.dateFromString(dateAsString)
@@ -44,9 +44,9 @@ var date2 = dateFormatter.dateFromString(dateAsString)
 date1!.earlierDate(date2!)
 date1!.laterDate(date2!)
 
-/*********************************************************************/
-/* Compare two dates by compare function and NSComparisonResult enum */
-/*********************************************************************/
+/**********************************************************************/
+/* Compare two dates by compare: function and NSComparisonResult enum */
+/**********************************************************************/
 if date1!.compare(date2!) == NSComparisonResult.OrderedDescending{
     print("date1 is later than date2")
 }
@@ -70,9 +70,9 @@ else{
     print("date1 and date2 are the same")
 }
 
-/************************/
-/* Using isEqualToDate: */
-/************************/
+/**************************************************************/
+/* Use isEqualToDate: to see if two NSDates' objects are equal*/
+/**************************************************************/
 dateFormatter.dateFormat = "yyyy MMM dd, HH:mm:ss"
 dateAsString = "2015 Dec 16, 12:00:00"
 date1 = dateFormatter.dateFromString(dateAsString)

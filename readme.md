@@ -22,9 +22,9 @@ I'm an open source project beginner and very interest in the open source communi
 - Create a **NSDate** object
 - Create a **NSDateFormatter** object
 - Use ``dateStyle`` property for **NSDateFormatter** to show predefined date format
-- Give an **NSLocale** object to ``locale`` property of **NSDateFormatter** to show locale-related date format.
+- Given an **NSLocale** object to ``locale`` property of **NSDateFormatter** to show locale-related date format.
   - I use China locale in this example because I'm a Chinese:)
-- Give an *date specifier string* to ``dateFormat`` property of **NSDateFormatter** to show custom date format
+- Given an *date specifier string* to ``dateFormat`` property of **NSDateFormatter** to show custom date format
 - Use **NSDateFormatter**'s ``dateFromString:`` method to convert a date string to an **NSDate** object
 
 ##PART II : Using NSDateComponents
@@ -35,18 +35,18 @@ I'm an open source project beginner and very interest in the open source communi
 
 ##PART III : Comparing Date and Time
 - Compare two dates by **NSDate**'s ``earlierDate:`` and ``laterDate:`` methods
-- Compare two dates by ``compare`` function and **NSComparisonResult** enum
+- Compare two dates by ``compare:`` function and **NSComparisonResult** enum
 - Compare two dates by using **NSDate**'s ``timeIntervalSinceReferenceDate`` property
 - Use ``isEqualToDate:`` to see if two **NSDate**s' objects are equal
 
 ##PART IV : Calculating Future and Past Dates
 - Make use the **NSCalendar** class and **NSCalendarUnit** struct
-- Make use the **NSDateComponents**
+- Make use the **NSDateComponents** object
 - Use **NSDate**'s ``dateByAddingTimeInterval:`` method
   - This method may produce wrong results because of leap seconds, leap years, daylight saving time, and so on
-- Substract a number of days from an **NSDate**
+- Substract a number of days from an **NSDate** object
 
 ##PART V : Calculating Date Difference
-- Use the **NSCalendar**'s ``components:fromDate:toDate:options:`` method
-- Use **NSDateComponentsFormatter**'s ``stringFromTimeInterval`` method
-- Use **NSDateComponentsFormatter**'s ``stringFromDate:toDate`` method
+- Using the **NSCalendar**'s ``components:fromDate:toDate:options:`` method
+- Using **NSDateComponentsFormatter**'s ``stringFromTimeInterval`` method
+- Using **NSDateComponentsFormatter**'s ``stringFromDate:toDate`` method

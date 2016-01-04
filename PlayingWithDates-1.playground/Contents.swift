@@ -9,16 +9,16 @@ import UIKit
 // The content of this playground contains:
 //******************************************************************************
 //** PART I : Using NSDate and NSDateFormatter
-// - Create a NSDate instance
-// - Create a NSDateFormatter instance
-// - Using dateStyle property for NSDateFormatter to show predefined date format
-// - Give an NSLocale instance to locale property of NSDateFormatter 
+// - Create a NSDate object
+// - Create a NSDateFormatter object
+// - Use dateStyle property for NSDateFormatter to show predefined date format
+// - Given an NSLocale object to locale property of NSDateFormatter
 //   to show locale-related date format.
-//   - I use China locale in this sample because I'm a Chinese:)
+//   - I use China locale in this example because I'm a Chinese:)
 // - Given an date specifier string to dateFormat property of NSDateFormatter
 //   to show custom date format
-// - Using NSDateFormatter's dateFromString method 
-//   to convert a date string to an NSDate instance
+// - Use NSDateFormatter's dateFromString method
+//   to convert a date string to an NSDate object
 //******************************************************************************
 // The contents are an implementation of http://appcoda.com 's tutorial
 // - Refer: http://www.appcoda.com/nsdate/
@@ -29,18 +29,18 @@ import UIKit
 /* PART I : Using NSDate and NSDateFormatter */
 /*********************************************/
 
-/********************/
-/* Get current date */
-/********************/
+/*****************************/
+/* Get current NSDate object */
+/*****************************/
 let currentDate = NSDate()
 
-/************************/
-/* Init a dateFormatter */
-/************************/
+/**********************************/
+/* Create a NSDateFormatter object*/
+/**********************************/
 let dateFormatter = NSDateFormatter()
 
 /**********************************************/
-/* Test different date style of dateFormatter */
+/* See different date styles of dateFormatter */
 /**********************************************/
 // Full Style
 dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
@@ -58,14 +58,15 @@ convertedDate = dateFormatter.stringFromDate(currentDate)
 dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
 convertedDate = dateFormatter.stringFromDate(currentDate)
 
-/*****************************************/
-/* Test locale property of dateFormatter */
-/*****************************************/
-// Set the locale for data formatter
+/********************************************/
+/* Set the locale property of dateFormatter */
+/********************************************/
+// Create a 'zh_CN' NSLocale object
 let cnLocale = NSLocale(localeIdentifier: "zh_CN")
+// Set the Chinese locale to data formatter
 dateFormatter.locale = cnLocale
 
-// Test different date style of dateFormatter on China locale
+// See different date styles of dateFormatter on China locale
 dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
 convertedDate = dateFormatter.stringFromDate(currentDate)
 
@@ -77,7 +78,7 @@ convertedDate = dateFormatter.stringFromDate(currentDate)
 
 dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
 // Pay attention that the order of year, month and day changed 
-//   compared with US locale
+// on Chinese locale compared with US locale
 convertedDate = dateFormatter.stringFromDate(currentDate)
 
 // go back to US locale
@@ -105,9 +106,9 @@ convertedDate = dateFormatter.stringFromDate(currentDate)
 dateFormatter.dateFormat = "HH:mm:ss"
 convertedDate = dateFormatter.stringFromDate(currentDate)
 
-/***********************************************/
-/* Convert a date string to an NSDate instance */
-/***********************************************/
+/*********************************************/
+/* Convert a date string to an NSDate object */
+/*********************************************/
 var dateAsString = "24-12-2015 23:59"
 dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
 var newDate = dateFormatter.dateFromString(dateAsString)

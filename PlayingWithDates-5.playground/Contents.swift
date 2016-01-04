@@ -10,8 +10,8 @@ import UIKit
 //*********************************************************************
 //** PART V : Calculating Date Difference
 // - Using the NSCalendar's components:fromDate:toDate:options: method
-// - Using NSDateComponentsFormatter's stringFromTimeInterval method
-// - Using NSDateComponentsFormatter's stringFromDate:toDate method
+// - Using NSDateComponentsFormatter's stringFromTimeInterval: method
+// - Using NSDateComponentsFormatter's stringFromDate:toDate: method
 //*********************************************************************
 // The contents are an implementation of http://appcoda.com 's tutorial
 // - Refer: http://www.appcoda.com/nsdate/
@@ -49,9 +49,9 @@ diffDateComponents.hour
 diffDateComponents.minute
 diffDateComponents.second
 
-/*******************************************************************/
-/* Using NSDateComponentsFormatter's stringFromTimeInterval method */
-/*******************************************************************/
+/********************************************************************/
+/* Using NSDateComponentsFormatter's stringFromTimeInterval: method */
+/********************************************************************/
 let dateComponentsFormatter = NSDateComponentsFormatter()
 dateComponentsFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Full
 
@@ -70,10 +70,11 @@ dateComponentsFormatter.stringFromTimeInterval(interval)
 dateComponentsFormatter.unitsStyle = .SpellOut
 dateComponentsFormatter.stringFromTimeInterval(interval)
 
-/***********************************************************/
-/* Using NSDateComponentsFormatter's stringFromDate:toDate */
-/***********************************************************/
-// First of all, we must set allowedUnits properly
+/************************************************************/
+/* Using NSDateComponentsFormatter's stringFromDate:toDate: */
+/************************************************************/
+// First of all, we must set allowedUnits property properly
 dateComponentsFormatter.allowedUnits = [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Day]
+// Then, we need to set the unitStyle property
 dateComponentsFormatter.unitsStyle = .Full
 let autoFormattedDifference = dateComponentsFormatter.stringFromDate(date1!, toDate: date2!)

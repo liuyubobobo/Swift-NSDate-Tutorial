@@ -9,12 +9,12 @@ import UIKit
 // The content of this playground contains:
 //********************************************************************
 //** PART II : Using NSDateComponents
-// - Create an NSCalendar instance
-// - Convert an NSDate object into an NSComponents object 
-//   using NSCalendar's components method
-// - Convert an NSDateComponents back to an NSDate
-//   using NSCalendar's dateFromComponents method
-// - See result of one date from different time zones
+// - Create an NSCalendar object
+// - Convert an NSDate object into an NSDateComponents object
+//   using NSCalendar's components:fromDate method
+// - Convert an NSDateComponents object back to an NSDate object
+//   using NSCalendar's dateFromComponents: method
+// - See results of one date from different time zones
 //   set NSDataComponents' timezone property
 //*********************************************************************
 // The contents are an implementation of http://appcoda.com 's tutorial
@@ -28,18 +28,18 @@ import UIKit
 
 let currentDate = NSDate()
 
-/*********************************/
-/* Create an NSCalendar instance */
-/*********************************/
+/*******************************/
+/* Create an NSCalendar object */
+/*******************************/
 let calendar = NSCalendar.currentCalendar()
 
-/********************************************************/
-/* Convert an NSDate object into an NSComponents object */
-/********************************************************/
+/************************************************************/
+/* Convert an NSDate object into an NSDateComponents object */
+/************************************************************/
 let dateComponents = calendar.components(
                         [NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second],
                             fromDate: currentDate)
-// To see all the available properties in NSCalendarUnit
+// To see all the available properties in NSCalendarUnit, please refer
 // https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/#//apple_ref/swift/struct/c:@E@NSCalendarUnit
 dateComponents.day
 dateComponents.month
@@ -49,13 +49,13 @@ dateComponents.hour
 dateComponents.minute
 dateComponents.second
 dateComponents.nanosecond
-// Because we don't set the NSCalendarUnit.TimeZone, we can't access it
-// unless we create dateComponents again by specify the TimeZone unit
+// Because we don't set the NSCalendarUnit.timeZone, we can't access it
+// unless we create dateComponents again by specify the timeZone unit
 dateComponents.timeZone
 
-/*************************************************/
-/* Convert an NSDateComponents back to an NSDate */
-/*************************************************/
+/**************************************************************/
+/* Convert an NSDateComponents object back to an NSDate object*/
+/**************************************************************/
 var newDate = NSDate()
 let components = NSDateComponents()
 components.day = 5
@@ -66,7 +66,7 @@ components.minute = 30
 newDate = calendar.dateFromComponents(components)!
 
 /****************************************************/
-/* See result of one date from different time zones */
+/* See results of one date from different timezones */
 /****************************************************/
 // GMT - Greenwich Mean Time
 components.timeZone = NSTimeZone(abbreviation: "GMT")
@@ -80,5 +80,5 @@ newDate = calendar.dateFromComponents(components)!
 components.timeZone = NSTimeZone(abbreviation: "CET")
 newDate = calendar.dateFromComponents(components)!
 
-// See the list of abbreviation of time zones: 
+// See the list of abbreviation of timezones: 
 // http://www.timeanddate.com/time/zones/
